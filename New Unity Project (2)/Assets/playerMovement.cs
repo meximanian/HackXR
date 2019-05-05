@@ -13,6 +13,6 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * Time.deltaTime * fistScript.speed * 5 * fistScript.boost;
+        transform.position += transform.forward * Time.deltaTime * fistScript.speed * 0;//5 * fistScript.boost;
     }
 }

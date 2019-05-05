@@ -7,10 +7,13 @@ public class playerCollider : MonoBehaviour
     // Start is called before the first frame update
     private int hitCounter = 0;
 
-    public Transform control;
+    public Transform leftControl;
+    public Transform rightControl;
     public GameObject player;
     Vector3 forward;
-    Vector3 controllerfwd;
+    Vector3 controllerfwdLeft;
+    Vector3 controllerfwdRight;
+    AudioClip crash;
 
     // Update is called once per frame
 
@@ -24,10 +27,11 @@ public class playerCollider : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        controllerfwd = control.forward;
+        controllerfwdLeft = leftControl.forward;
+        controllerfwdLeft = rightControl.forward;
 
         // Debug.Log(Vector3.Dot(forward, controllerfwd));
-       // Debug.Log(Vector3.Distance(forward, controllerfwd));
+        // Debug.Log(Vector3.Distance(forward, controllerfwd));
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -43,7 +47,8 @@ public class playerCollider : MonoBehaviour
     {
         if (other.gameObject.tag == "fullWall")
         {
-           if((Vector3.Distance(forward, controllerfwd) > 1.0f)){
+           if((Vector3.Distance(forward, controllerfwdLeft) > 1.0f) && (Vector3.Distance(forward, controllerfwdLeft) > 1.0f))
+            {
                 Debug.Log("blocked");
 
             }
