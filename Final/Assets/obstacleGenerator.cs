@@ -9,6 +9,9 @@ public class obstacleGenerator : MonoBehaviour
     GameObject obstacle;
     GameObject enemy;
     bool firstTen = true;
+    int MAX_RAND = 2;
+    int randCounter = 0;
+    int lastNum = 50;
     public GameObject plane;
     // Start is called before the first frame update
     void Awake()
@@ -16,22 +19,38 @@ public class obstacleGenerator : MonoBehaviour
         for (int i = 0; i < 80; i++)
         {
             randomNum = Random.Range(0, 5);
+            if(randomNum == lastNum)
+            {
+                randCounter++;
+            }
+            else
+            {
+                randCounter = 0;
+            }
+
+            if(randCounter == MAX_RAND)
+            {
+                randomNum += 1;
+                randomNum = randomNum % 5;
+                randCounter = 0;
+            }
+
             if (i > 8)
             {
                 firstTen = false;
             }
-            if (randomNum == 0 || randomNum == 5)
+            if (randomNum == 0)
             {
 
                 GameObject prefab2 = Resources.Load("red") as GameObject;
                 enemy = Instantiate(prefab2) as GameObject;
-                enemy.transform.position = new Vector3(0, 0.0f, (i * 20) + 10);
+                enemy.transform.position = new Vector3(0, 0.0f, (i * 25));
                 enemy.transform.parent = plane.transform;
                 if (firstTen == true)
                 {
                     GameObject prefab1 = Resources.Load("FIGHT") as GameObject;
                     obstacle = Instantiate(prefab1) as GameObject;
-                    obstacle.transform.position = new Vector3(3.19f, 1.12f, (i * 20) + 10);
+                    obstacle.transform.position = new Vector3(3.19f, 1.12f, (i * 25));
                     obstacle.transform.parent = plane.transform;
                 }
                 //gameobject prefab = resources.load("target") as gameobject;
@@ -42,13 +61,13 @@ public class obstacleGenerator : MonoBehaviour
             {
                 GameObject prefab = Resources.Load("LeftWall") as GameObject;
                 obstacle = Instantiate(prefab) as GameObject;
-                obstacle.transform.position = new Vector3(1.422f, 0.07f, i * 20);
+                obstacle.transform.position = new Vector3(1.422f, 0.07f, i * 25);
                 obstacle.transform.parent = plane.transform;
                 if (firstTen == true)
                 {
                     GameObject prefab1 = Resources.Load("RIGHT CANVAS") as GameObject;
                     obstacle = Instantiate(prefab1) as GameObject;
-                    obstacle.transform.position = new Vector3(3.19f, 1.12f, i * 20);
+                    obstacle.transform.position = new Vector3(3.19f, 1.12f, i * 25);
                     obstacle.transform.parent = plane.transform;
                 }
             }
@@ -56,13 +75,13 @@ public class obstacleGenerator : MonoBehaviour
             {
                 GameObject prefab = Resources.Load("RightWall") as GameObject;
                 obstacle = Instantiate(prefab) as GameObject;
-                obstacle.transform.position = new Vector3(3.06f, 0.07f, i * 20);
+                obstacle.transform.position = new Vector3(3.06f, 0.07f, i * 25);
                 obstacle.transform.parent = plane.transform;
                 if (firstTen == true)
                 {
                     GameObject prefab1 = Resources.Load("LEFT CANVAS") as GameObject;
                     obstacle = Instantiate(prefab1) as GameObject;
-                    obstacle.transform.position = new Vector3(3.19f, 1.12f, i * 20);
+                    obstacle.transform.position = new Vector3(3.19f, 1.12f, i * 25);
                     obstacle.transform.parent = plane.transform;
                 }
             }
@@ -70,8 +89,13 @@ public class obstacleGenerator : MonoBehaviour
             {
                 GameObject prefab = Resources.Load("fullWall") as GameObject;
                 obstacle = Instantiate(prefab) as GameObject;
-                obstacle.transform.position = new Vector3(1.442f, 0.07f, i * 20);
+                obstacle.transform.position = new Vector3(1.442f, 0.07f, i * 25);
                 obstacle.transform.parent = plane.transform;
+
+                GameObject prefab2 = Resources.Load("red") as GameObject;
+                enemy = Instantiate(prefab2) as GameObject;
+                enemy.transform.position = new Vector3(0, 0.0f, (i * 25) + 10);
+                enemy.transform.parent = plane.transform;
 
                 if (firstTen == true)
                 {

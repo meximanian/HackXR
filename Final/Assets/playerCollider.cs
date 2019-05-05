@@ -66,12 +66,12 @@ public class playerCollider : MonoBehaviour
             }
         }
 
-        if (other.gameObject.tag == "droid")
-        {
+        //if (other.gameObject.tag == "droid")
+        //{
 
-            HealthBoss.unblockable = true;
-            HealthBoss.damaged++;
-            source.PlayOneShot(crash3);
-        }
+        //    HealthBoss.unblockable = true;
+        //    HealthBoss.damaged++;
+        //    source.PlayOneShot(crash3);
+        //}
     }
 }

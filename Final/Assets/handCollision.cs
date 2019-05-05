@@ -91,16 +91,16 @@ public class handCollision : MonoBehaviour
 
         if (collision.gameObject.tag == "droid")
         {
-            if (playerCollider.blocking)
-            {
-             HealthBoss.unblockable = true;
-             HealthBoss.damaged++;
+            //if (playerCollider.blocking)
+            //{
+            // HealthBoss.unblockable = true;
+            // HealthBoss.damaged++;
                 
-            }
-            else
-            {
-                collision.gameObject.tag = "dead";
-            }
+            //}
+            //else
+            //{
+            //    collision.gameObject.tag = "dead";
+            //}
             
         }
         //if (canHit)
