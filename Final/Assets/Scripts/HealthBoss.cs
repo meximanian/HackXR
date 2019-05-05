@@ -10,6 +10,7 @@ public class HealthBoss : MonoBehaviour
     public float MaxHealth { get; set; }
     public static int damaged;
     public static bool unblockable = false;
+    public static bool gameOver = false;
     float deadTime = 3.0f;
     public int damageUpdate;
     public Slider healthbar;
@@ -42,9 +43,16 @@ public class HealthBoss : MonoBehaviour
             }
         }      
 
-        if(CurrentHealth <= 0)
+        if(CurrentHealth <= 0 || gameOver)
         {
-            mytext.text = "Dead";
+            if (gameOver)
+            {
+                mytext.text = "Time is Up";
+            }
+            else
+            {
+                mytext.text = "Dead";
+            }
             youDead.SetActive(true);
             CurrentHealth = 0;
             if(deadTime > 0.0f)

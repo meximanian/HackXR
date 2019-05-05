@@ -97,6 +97,10 @@ public class handCollision : MonoBehaviour
              HealthBoss.damaged++;
                 
             }
+            else
+            {
+                collision.gameObject.tag = "dead";
+            }
             
         }
         //if (canHit)

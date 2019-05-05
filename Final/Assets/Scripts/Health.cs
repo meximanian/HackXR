@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Timer = 60f;
+        Timer = 120f;
         Currenttime = Timer;
         timebar.value = CalculateTime();
     }
@@ -28,7 +28,9 @@ public class Health : MonoBehaviour
         {
             Timer = 0.0f;
             mytext.text = "0.0";
+            HealthBoss.gameOver = true;
         }
+
     }
 
     void TimeDrop(float time)

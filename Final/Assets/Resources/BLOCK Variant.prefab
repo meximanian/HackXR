@@ -127,5 +127,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: FIST BLOCK!
       objectReference: {fileID: 0}
+    - target: {fileID: 8929108421820931639, guid: 8e836b6add1cbfc4bb49355a8619fbf1,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e836b6add1cbfc4bb49355a8619fbf1, type: 3}

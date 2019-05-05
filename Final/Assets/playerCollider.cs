@@ -13,14 +13,15 @@ public class playerCollider : MonoBehaviour
     Vector3 forward;
     Vector3 controllerfwdLeft;
     Vector3 controllerfwdRight;
-    AudioClip crash;
+    public AudioClip crash1, crash2, crash3;
+    AudioSource source;
 
     // Update is called once per frame
 
     void Start()
     {
          forward = player.transform.forward;
-           
+        source = GetComponent<AudioSource>();
 
     }
 
@@ -41,6 +42,7 @@ public class playerCollider : MonoBehaviour
             hitCounter++;
             HealthBoss.damaged++;
             Debug.Log(hitCounter);
+            source.PlayOneShot(crash1);
         }
     }
 
@@ -60,6 +62,7 @@ public class playerCollider : MonoBehaviour
                 Debug.Log("NOT blocked");
                 blocking = false;
                 HealthBoss.damaged++;
+                source.PlayOneShot(crash2);
             }
         }
 
@@ -68,6 +71,7 @@ public class playerCollider : MonoBehaviour
 
             HealthBoss.unblockable = true;
             HealthBoss.damaged++;
+            source.PlayOneShot(crash3);
         }
     }
 }

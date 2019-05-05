@@ -16,7 +16,7 @@ public class obstacleGenerator : MonoBehaviour
         for (int i = 0; i < 80; i++)
         {
             randomNum = Random.Range(0, 5);
-            if (i > 10)
+            if (i > 8)
             {
                 firstTen = false;
             }
@@ -48,7 +48,7 @@ public class obstacleGenerator : MonoBehaviour
                 {
                     GameObject prefab1 = Resources.Load("RIGHT CANVAS") as GameObject;
                     obstacle = Instantiate(prefab1) as GameObject;
-                    obstacle.transform.position = new Vector3(6.3f, 0.67f, i * 20);
+                    obstacle.transform.position = new Vector3(3.19f, 1.12f, i * 20);
                     obstacle.transform.parent = plane.transform;
                 }
             }
@@ -62,7 +62,7 @@ public class obstacleGenerator : MonoBehaviour
                 {
                     GameObject prefab1 = Resources.Load("LEFT CANVAS") as GameObject;
                     obstacle = Instantiate(prefab1) as GameObject;
-                    obstacle.transform.position = new Vector3(6.3f, 1.55f, i * 20);
+                    obstacle.transform.position = new Vector3(3.19f, 1.12f, i * 20);
                     obstacle.transform.parent = plane.transform;
                 }
             }
@@ -77,7 +77,7 @@ public class obstacleGenerator : MonoBehaviour
                 {
                     GameObject prefab1 = Resources.Load("BLOCK Variant") as GameObject;
                     obstacle = Instantiate(prefab1) as GameObject;
-                    obstacle.transform.position = new Vector3(3.19f, 1.16f, (i * 20) - 5);
+                    obstacle.transform.position = new Vector3(3.19f, 1.12f, (i * 20) - 5);
                     obstacle.transform.parent = plane.transform;
                 }
             }
