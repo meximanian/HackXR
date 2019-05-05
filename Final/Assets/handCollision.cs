@@ -88,6 +88,17 @@ public class handCollision : MonoBehaviour
         hit = true;
         hitTarget = collision.gameObject.tag;
         Debug.Log(hitTarget);
+
+        if (collision.gameObject.tag == "droid")
+        {
+            if (playerCollider.blocking)
+            {
+             HealthBoss.unblockable = true;
+             HealthBoss.damaged++;
+                
+            }
+            
+        }
         //if (canHit)
         //{
         //    canHit = false;

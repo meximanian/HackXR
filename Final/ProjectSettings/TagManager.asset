@@ -8,6 +8,10 @@ TagManager:
   - leftWall
   - cube
   - fullWall
+  - player
+  - Boss
+  - droid
+  - getShield
   layers:
   - Default
   - TransparentFX

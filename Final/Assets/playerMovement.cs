@@ -5,6 +5,7 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject plane;
     void Start()
     {
         
@@ -13,6 +14,6 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * Time.deltaTime * fistScript.speed * 5 * fistScript.boost;
+        plane.transform.position -= plane.transform.forward * Time.deltaTime * fistScript.speed * 10 * fistScript.boost;
     }
 }

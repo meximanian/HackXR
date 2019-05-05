@@ -6,7 +6,7 @@ public class playerCollider : MonoBehaviour
 {
     // Start is called before the first frame update
     private int hitCounter = 0;
-
+    public static bool blocking = false;
     public Transform leftControl;
     public Transform rightControl;
     public GameObject player;
@@ -39,6 +39,7 @@ public class playerCollider : MonoBehaviour
         if (collision.gameObject.tag == "cube")
         {
             hitCounter++;
+            HealthBoss.damaged++;
             Debug.Log(hitCounter);
         }
     }
@@ -50,12 +51,23 @@ public class playerCollider : MonoBehaviour
            if((Vector3.Distance(forward, controllerfwdLeft) > 1.0f) && (Vector3.Distance(forward, controllerfwdLeft) > 1.0f))
             {
                 Debug.Log("blocked");
+                blocking = true;
+              
 
             }
             else
             {
                 Debug.Log("NOT blocked");
+                blocking = false;
+                HealthBoss.damaged++;
             }
+        }
+
+        if (other.gameObject.tag == "droid")
+        {
+
+            HealthBoss.unblockable = true;
+            HealthBoss.damaged++;
         }
     }
 }
