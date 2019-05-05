@@ -36,7 +36,6 @@ public class Health : MonoBehaviour
         Currenttime -= time;
         mytext.text = Currenttime.ToString();
         timebar.value = CalculateTime();
-        Debug.Log(Currenttime);
     }
 
     float CalculateTime()
